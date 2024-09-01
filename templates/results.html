@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-image: url("static/images/logo.jpg");
+            background-size: cover;
+            font-family:Helvetica;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding-top: 100px;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(1, 63, 4, 0.5); /* Black overlay with 50% opacity */
+        }
+        .result-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 80px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .result-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .result-container p {
+            font-size: 20px;
+        }
+        .result-container p strong {
+        color: #FFD700; /* Gold color */
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+    <h1>Song Popularity Prediction Result</h1>
+    <p>The predicted popularity of the song is: <strong>{{ prediction }}</strong></p>
+    <a href="/">Predict Another Song</a>
+    </div>
+</body>
+</html>

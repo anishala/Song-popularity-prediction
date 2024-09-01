@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Popularity Prediction</title>
+    <style>
+        body {
+            background-image: url("static/images/ai spotify.jpeg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .form-container {
+            background-color: rgba(2, 48, 14, 0.719);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 2px 5px rgba(221, 215, 215, 0.1);
+        }
+
+
+        .form-container label {
+            font-size: 18px;
+            margin-bottom: 20px; /* Increased from 10px to 20px */
+            display: block;
+            text-align: left;
+            overflow: hidden; /* To contain floated elements */
+        }
+        .form-container label > span {
+            width: 100px;
+            font-weight: bold;
+            float: left;
+            padding-top: 8px;
+            padding-right: 5px;
+        }
+        .form-container select, .form-container input {
+            margin: 5px 0;
+            padding: 10px; /* Use the same padding for both */
+            width: calc(100% - 120px);
+            border-radius: 5px;
+            border: none;
+            float: right;
+            line-height: 1.5; /* Add line-height to match input and select */
+            box-sizing: border-box; /* Ensure consistent sizing */
+        }
+        input[type="submit"] {
+            background-color: black;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            width: 70%;
+            margin: 30px auto; /* Increased top and bottom margin */
+            display: block;
+            float: none;
+            padding: 10px; /* Increased padding for larger button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Song Popularity Prediction</h1>
+    <div class="form-container">
+        <form action="/predict" method="post">
+            <label>
+                <span>Genre</span>
+                <select name="playlist_genre" required>
+                    <option value="" disabled selected>Select Genre</option>
+                    <option value="5">edm</option>
+                    <option value="3">latin</option>
+                    <option value="0">pop</option>
+                    <option value="4">r&b</option>
+                    <option value="1">rap</option>
+                    <option value="2">rock</option>
+                </select>
+            </label>
+
+            <label>
+                <span>Subgenre</span>
+                <select name="playlist_subgenre" required>
+                    <option value="" disabled selected>Select Sub Genre</option>
+                    <option value="1">dance pop</option>
+                    <option value="2">post-teen pop</option>
+                    <option value="3">electropop</option>
+                    <option value="4">indie poptimism</option>
+                    <option value="5">hip hop</option>
+                    <option value="6">southern hip hop</option>
+                    <option value="7">gangster rap</option>
+                    <option value="8">trap</option>
+                    <option value="9">album rock</option>
+                    <option value="10">classic rock</option>
+                    <option value="11">permanent wave</option>
+                    <option value="12">hard rock</option>
+                    <option value="13">tropical</option>
+                    <option value="14">latin pop</option>
+                    <option value="15">reggaeton</option>
+                    <option value="16">latin hip hop</option>
+                    <option value="17">urban contemporary</option>
+                    <option value="18">hip pop</option>
+                    <option value="19">new jack swing</option>
+                    <option value="20">neo soul</option>
+                    <option value="21">electro house</option>
+                    <option value="22">big room</option>
+                    <option value="23">pop edm</option>
+                    <option value="24">progressive electro house</option>
+
+                </select><br>
+            </label>
+
+            <label>
+                <span>Danceability</span>
+                <input type="number" step="0.01" id="danceability" name="danceability" placeholder='enter danceability (0-1)' required>
+            </label>
+
+            <label>
+                <span>Energy</span>
+                <input type="number" step="0.01" id="energy" name="energy" placeholder='enter energy (0-1)' required>
+            </label>
+            <label>
+                <span>Key</span>
+                <input type="number" step="0.01" id="key" name="key" placeholder='enter key (0-11)' required>
+            </label>
+          
+            <label>
+                <span>  Loudness </span>
+            <input type="number" step="0.01" id="loudness" name="loudness" placeholder='enter loudness (in dB) (-10 to 5)' required>
+        </label>
+
+            <label>
+                <span>Mode </span> 
+            <input type="number" id="mode" name="mode" placeholder='enter mode (0 or 1)' required>
+        </label>
+
+            <label>
+            <span>Speechiness</span>    
+            <input type="number" step="0.01" id="speechiness" name="speechiness" placeholder='enter speechiness (0-1)' required>
+            </label>
+
+            <label>
+                <span>   Acousticness </span>
+            <input type="number" step="0.01" id="acousticness" name="acousticness" placeholder='enter acousticness (0-1)' required>
+        </label>
+            <label>
+                <span>Valence</span>
+            <input type="number" step="0.01" id="valence" name="valence" placeholder='enter valence (0-1)' required>
+        </label>
+            <label >
+                <span>    Tempo</span>
+            <input type="number" step="0.01" id="tempo" name="tempo" placeholder='enter tempo (in BPM)' required>
+        </label>
+            <label >
+                <span>    Duration (minutes)</span>
+            <input type="number" step="0.01" id="duration_minutes" name="duration_minutes" placeholder='enter duration (minutes)' required>
+        </label>
+
+            <input type="submit" value="Predict Popularity">
+        </form>
+    </div>
+</body>
+</html>
